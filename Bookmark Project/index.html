@@ -18,11 +18,11 @@
 
            <div class="m-auto w-75">
                <p class="site" >Site Name</p>
-                <input placeholder="Bookmark Name" class="form-control" id="sname">
-                <p class="alert alert-error m-auto"></p>
+                <input onblur="checkInputs(this,'Site');" placeholder="Bookmark Name" class="form-control" id="sname">
+                <p  id="Site" class="alert mt-2 m-auto"></p>
                 <p class="site" >URL</p>
-                <input placeholder="Website URL" class="form-control" id="url">
-                <p class="alert alert-error m-auto"></p>
+                <input onblur="checkInputs(this,'URL');" placeholder="Website URL" class="form-control" id="url">
+                <p id="URL" class="alert mt-2 mb-2 m-auto"></p>
            </div>
             <div class="m-auto">
                 <button onclick="createUrl()" class="btn btn-primary d-block m-auto">Submit</button>

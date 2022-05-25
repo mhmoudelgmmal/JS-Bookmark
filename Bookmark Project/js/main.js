@@ -5,13 +5,15 @@ var boxOutputIdVar = document.getElementById("boxOutputId");
 
 
 
-
+// check if the local storage has values or not 
 if(localStorage.getItem("allsites") == null){
     siteContainer = [];
 }else{
     siteContainer = JSON.parse(localStorage.getItem("allsites"));
     display();
 }
+
+
 function createUrl(){
     if(sname.value != "" && surl.value != ""){
         var oneUrl = {
@@ -42,6 +44,17 @@ function createUrl(){
     }else{
         alert("Insert a valid inputs");
         return false;
+    }
+}
+
+function checkInputs(input,f){
+    var err = document.getElementById(""+f+"");
+    if(input.value == ""){
+        err.classList.add("alert-danger");
+        err.innerHTML = "You have to fill the "+ f + " input";
+    }else{
+        err.classList.remove("alert-danger");
+        err.innerHTML ="";
     }
 }
 
