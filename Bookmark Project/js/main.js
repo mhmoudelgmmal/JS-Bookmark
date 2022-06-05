@@ -15,7 +15,7 @@ if(localStorage.getItem("allsites") == null){
 
 
 function createUrl(){
-    if(sname.value != "" && surl.value != ""){
+    if(checkInputsUrl() && checkInputsName()){
         var oneUrl = {
             name : sname.value,
             url:surl.value
@@ -32,7 +32,7 @@ function createUrl(){
                 <div class="row">
                     <h2 class="col-md-4">${siteContainer[i].name}</h2>
                     <div class="col-md-8">
-                        <a href="http://${siteContainer[i].url}" target="_blank" class="btn btn-primary visit">Visit</a>
+                        <a href="${siteContainer[i].url}" target="_blank" class="btn btn-primary visit">Visit</a>
                         <button onclick = "deleteRow(${i});" class="btn btn-danger">Delete</button>
                     </div>
                 </div>      
@@ -47,15 +47,40 @@ function createUrl(){
     }
 }
 
-function checkInputs(input,f){
-    var err = document.getElementById(""+f+"");
-    if(input.value == ""){
-        err.classList.add("alert-danger");
-        err.innerHTML = "You have to fill the "+ f + " input";
+function checkInputsName(){
+    var err = document.getElementById("Site");
+    if(sname.value == ""){
+        err.classList.remove("d-none");
+        err.classList.add("d-block");        
+        err.innerHTML = "You have to fill the site name input and write a correct name";
+        return false;
     }else{
-        err.classList.remove("alert-danger");
+        err.classList.remove("d-block");
+        err.classList.add("d-none");         
         err.innerHTML ="";
+        return true;
     }
+}
+function checkInputsUrl(){
+    var errUrl = document.getElementById("URL");
+
+    var input = document.getElementById("url").value;
+
+    var reg = /^(https:\/\/www\.)[A-Za-z0-9\._\-?\/]{1,}[A-Za-z0-9]{0,}(\.)[a-z]{3}$/;
+
+    if(reg.test(input)){
+        errUrl.classList.add("d-none");
+        errUrl.classList.remove("d-block");
+        errUrl.innerHTML ="";
+        return true;
+    }else{
+        errUrl.classList.remove("d-none");
+        errUrl.classList.add("d-block");
+        errUrl.innerHTML = "URL Should start with (https://www.) then write the site name after that write the type of the entity like (.com)";
+        return false;
+    }
+    
+    
 }
 
 function display(){
@@ -67,7 +92,7 @@ function display(){
                 <div class="row">
                     <h2 class="col-md-4">${siteContainer[i].name}</h2>
                     <div class="col-md-8">
-                        <a href="http://${siteContainer[i].url}" target="_blank" class="btn btn-primary visit">Visit</a>
+                        <a href="${siteContainer[i].url}" target="_blank" class="btn btn-primary visit">Visit</a>
                         <button onclick = "deleteRow(${i});" class="btn btn-danger">Delete</button>
                     </div>
                 </div>      
