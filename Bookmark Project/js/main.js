@@ -15,6 +15,10 @@ if(localStorage.getItem("allsites") == null){
 
 
 function createUrl(){
+    // to check if the valditation happend or not 
+    checkInputsName()
+    checkInputsUrl()
+    
     if(checkInputsUrl() && checkInputsName()){
         var oneUrl = {
             name : sname.value,
