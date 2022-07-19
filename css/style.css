@@ -1,0 +1,39 @@
+.bookHead{
+    color:#AAA;
+    font-size:40px;
+    margin: 40px 0 40px 0;
+    
+   
+}
+.bookBox{
+    margin: 20px 0;
+    padding: 20px;
+    background-color: #EEE;
+}
+.site{
+    text-align: center;
+    font-weight:bold;
+    font-size:18px;
+    margin: 20px 0;
+}
+.boxOutput{
+    background-color: #EEE;
+    padding: 30px;
+    background-image: linear-gradient(to top, #fff, #EEE);
+}
+.row{
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+footer{
+    color:rgb(170, 170, 170);
+    font-weight:bold;
+    margin-top:30px ;
+    margin-bottom: 50px;
+}
+button ,.visit{
+    transition:.3s al ease-in-out;
+}
+button:hover ,.visit:hover{
+    box-shadow: 2px 2px 10px black;
+}
